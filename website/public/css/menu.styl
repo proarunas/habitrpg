@@ -72,12 +72,15 @@
   @extend $hrpg-button
   @extend $hrpg-modal-dropdown-right
   hrpg-button-color-mixin($color-toolbar)
-// Top level menu items: Tasks – User – Social – Inventory
-.toolbar-nav
+
+// Top level menu items for medium width screen
+.toolbar-tablet-nav
   white-space: nowrap
   float:left;
   padding: 0.618em
-  @media screen and (max-width:768px)
+  @media screen and (max-width: 767px)
+    display: none
+  @media screen and (min-width: 992px)
     display: none
   > li
     margin-right: 0.618em
@@ -94,6 +97,30 @@
     > a
       display:inline-block
       height:100%
+
+// Top level menu items: Tasks – User – Social – Inventory
+.toolbar-nav
+  white-space: nowrap
+  float:left;
+  padding: 0.618em
+  @media screen and (max-width:991px)
+    display: none
+  > li
+    margin-right: 0.618em
+  .toolbar-button-dropdown
+    @extend $hrpg-button-toggle
+    @extend $hrpg-modal-dropdown-right
+    hrpg-button-color-mixin($color-toolbar)
+    &.highlight
+      > a span.glyphicon
+        margin-right: 0.382em !important
+  .toolbar-button
+    @extend $hrpg-button
+    hrpg-button-color-mixin($color-toolbar)
+    > a
+      display:inline-block
+      height:100%
+
 // Information bar: Bailey – notifs – currency – subscribe button
 .toolbar-bailey, .toolbar-wallet, .toolbar-options, .toolbar-subscribe
   float:right
@@ -130,6 +157,11 @@
 .toolbar-sync, .toolbar-settings, .toolbar-audio
   @extend $hrpg-button
   hrpg-button-color-mixin($color-toolbar)
+
+.toolbar-subscribe
+  @media screen and (max-width:991px)
+    display: none
+
 // Notifications icon and dropdown
 .toolbar-notifs
   @extend $hrpg-button
